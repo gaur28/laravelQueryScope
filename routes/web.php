@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', HomeController::class, 'home')->name('home');
-// Route::get('/contact', HomeController::class, 'contact')->name('contact');
-// Route::get('/secret', HomeController::class, 'secret')->name('secret');
-// Route::resource('/posts', 'PostController');
+Route::get('/', HomeController::class, 'home')->name('home');
+Route::get('/contact', HomeController::class, 'contact')->name('contact');
+Route::get('/secret', HomeController::class, 'secret')->name('secret');
+Route::resource('/posts', 'PostController');
