@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Scopes\DeletedAdminScope;
 use Illuminate\Support\Facades\Cache;
+use PhpParser\Node\Stmt\Static_;
 
 class BlogPost extends Model
 {
@@ -31,10 +32,10 @@ class BlogPost extends Model
         return $query->orderBy(static::CREATED_AT, 'desc');
     }
 
-    public function scopeMostCommented(Builder $query)
+    public function scopeLatestCommented(Builder $query)
     {
-        // comments_count
-        return $query->withCount('comments')->orderBy('comments_count', 'desc');
+        //latest_comments
+        return $query->withCount('comments')->orderBy(static::CREATED_AT, 'desc');
     }
 
     public static function boot()
